@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #fff7ef;
+  --paper2: #fff1e4;
+  --ink: #3a1f1b;
+  --ink-muted: #6d4a44;
+  --peach: #fbcba4;
+  --dusty-rose: #d7a795;
+  --burgundy: #6c1613;
+  --terracotta: #f49c76;
+  --dusty-blue: #9cbbcf;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper2: var(--paper2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-peach: var(--peach);
+  --color-dusty-rose: var(--dusty-rose);
+  --color-burgundy: var(--burgundy);
+  --color-terracotta: var(--terracotta);
+  --color-dusty-blue: var(--dusty-blue);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+  --radius-card: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: radial-gradient(
+      1400px 900px at 15% -10%,
+      color-mix(in oklab, var(--peach) 40%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px 800px at 110% 30%,
+      color-mix(in oklab, var(--dusty-blue) 35%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      1100px 900px at 40% 120%,
+      color-mix(in oklab, var(--dusty-rose) 30%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--paper), var(--paper2));
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui;
+  text-rendering: geometricPrecision;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--peach) 65%, white);
+}
