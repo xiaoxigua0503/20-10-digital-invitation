@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { IntroEnvelope } from "@/components/IntroEnvelope";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { StickyNav } from "@/components/StickyNav";
+import { cn } from "@/lib/utils";
 import { HeroSection } from "@/sections/HeroSection";
 import { CountdownSection } from "@/sections/CountdownSection";
 import { StorySection } from "@/sections/StorySection";
@@ -60,29 +61,36 @@ export function ClientApp() {
         />
       ) : null}
 
-      <main className="flex-1">
-        <HeroSection
-          onRsvp={() =>
-            document.getElementById("rsvp")?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            })
-          }
-        />
-        <CountdownSection />
-        <StorySection />
-        <TimelineSection />
-        <EntourageSection />
-        <DressCodeSection />
-        <DetailsSection />
-        <VenueSection />
-        <GallerySection />
-        <GiftRegistrySection />
-        <FaqSection />
-        <RsvpSection />
-        <ContactSection />
-        <FooterSection />
-      </main>
+      <div
+        className={cn(
+          "transition-[opacity,transform,filter] duration-[1100ms] ease-[cubic-bezier(.18,.9,.18,1)]",
+          entered ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-[1.02] blur-sm"
+        )}
+      >
+        <main className="flex-1">
+          <HeroSection
+            onRsvp={() =>
+              document.getElementById("rsvp")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          />
+          <CountdownSection />
+          <StorySection />
+          <TimelineSection />
+          <EntourageSection />
+          <DressCodeSection />
+          <DetailsSection />
+          <VenueSection />
+          <GallerySection />
+          <GiftRegistrySection />
+          <FaqSection />
+          <RsvpSection />
+          <ContactSection />
+          <FooterSection />
+        </main>
+      </div>
     </>
   );
 }
