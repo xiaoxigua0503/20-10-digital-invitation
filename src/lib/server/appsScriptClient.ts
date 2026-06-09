@@ -24,9 +24,21 @@ export async function callAppsScript<T>({
   });
 
   const data = (await res.json().catch(() => null)) as unknown;
-  if (!res.ok || !data || typeof data !== "object") {
-    return { ok: false, error: "Apps Script request failed" };
-  }
+  if (!res.ok) {
+  const text = await res.text().catch(() => "");
+  return {
+    ok: false,
+    error: `HTTP ${res.status}: ${text}`,
+  };
+}
+
+if (!data || typeof data !== "object") {
+  const text = await res.text().catch(() => "");
+  return {
+    ok: false,
+    error: `Invalid JSON response: ${text}`,
+  };
+}
 
   const shape = data as { ok?: unknown; data?: unknown; error?: unknown };
   if (shape.ok === true) return { ok: true, data: shape.data as T };
