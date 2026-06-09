@@ -2,7 +2,7 @@ import { galleryImages } from "@/lib/images";
 
 export const wedding = {
   couple: {
-    bride: "Christine Faner",
+    bride: "Christine Faaaner",
     groom: "Angelo Pablo",
   },
   date: {
