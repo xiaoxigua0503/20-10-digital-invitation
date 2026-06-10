@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 
 function Line({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-[28px] border border-white/45 bg-white/44 p-6">
+    <div className="card-bg-3 rounded-[28px] border border-white/45 p-6">
       <p className="font-sans text-xs tracking-[0.22em] uppercase text-ink-muted">
         {label}
       </p>
@@ -16,7 +16,7 @@ export function GiftRegistrySection() {
   return (
     <Section id="gifts" title="Gift Registry" eyebrow="With gratitude">
       <Reveal>
-        <div className="rounded-[34px] border border-white/45 bg-white/34 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
+        <div className="card-bg-1 rounded-[34px] border border-white/45 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
           <p className="font-sans text-sm leading-7 text-ink-muted">
             As love is what this day is all about, your presence is the greatest
             gift. Should you still believe a gift is worth giving, a small
@@ -31,4 +31,3 @@ export function GiftRegistrySection() {
     </Section>
   );
 }
-

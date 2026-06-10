@@ -5,7 +5,6 @@ import Image from "next/image";
 const story = [
   {
     title: "Hiraya Sound Track",
-    subtitle: "1st photo",
     src: "/gallery/HirayaVinyl.png",
     alt: "Hiraya soundtrack artwork",
     captionTitle: "(Lyrics to be launched on June 19, 2026)",
@@ -16,7 +15,6 @@ const story = [
   },
   {
     title: "Engagement and Promise Ring",
-    subtitle: "2nd photo",
     src: "/gallery/PromiseRing.jpg",
     alt: "Engagement and promise rings",
     captionTitle: "Stories and Promises Above Pebbles",
@@ -28,7 +26,6 @@ const story = [
   },
   {
     title: "Wedding Rings",
-    subtitle: "3rd photo",
     src: "/gallery/WeddingRing.jpeg",
     alt: "Wedding rings",
     captionTitle: "Bands that Bind to Eternal Episodes",
@@ -45,21 +42,30 @@ export function StorySection() {
       <div className="grid gap-6 sm:gap-8">
         {story.map((s, idx) => (
           <Reveal key={s.title} delayMs={idx * 80}>
-            <article className="overflow-hidden rounded-[32px] border border-white/45 bg-white/30 shadow-[0_22px_80px_rgba(58,31,27,0.12)]">
+            <article className="card-bg-1 overflow-hidden rounded-[32px] border border-white/45 shadow-[0_22px_80px_rgba(58,31,27,0.12)]">
               <div className="bg-white/10">
+                {/* Mobile: keep the original full-width image behavior */}
                 <Image
                   src={s.src}
                   alt={s.alt}
                   width={1600}
                   height={1000}
-                  className="h-auto w-full object-contain"
+                  className="h-auto w-full object-contain sm:hidden"
                 />
+
+                {/* Desktop: keep a controlled header height and let the photo fill it */}
+                <div className="relative hidden h-[320px] w-full overflow-hidden sm:block sm:h-[360px]">
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    fill
+                    sizes="(min-width: 640px) 100vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
               <div className="bg-white/38 p-7 backdrop-blur-md sm:p-9">
-                <p className="font-sans text-xs tracking-[0.28em] uppercase text-ink-muted/80">
-                  {s.subtitle}
-                </p>
-                <h3 className="mt-4 font-serif text-2xl leading-tight text-ink sm:text-3xl">
+                <h3 className="font-serif text-2xl leading-tight text-ink sm:text-3xl">
                   {s.title}
                 </h3>
                 <p className="mt-3 font-sans text-sm leading-7 text-ink-muted">

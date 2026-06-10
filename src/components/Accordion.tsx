@@ -18,7 +18,7 @@ export function Accordion({
         return (
           <div
             key={id}
-            className="rounded-[28px] border border-white/45 bg-white/34 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md"
+            className="card-bg-4 rounded-[28px] border border-white/45 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md"
           >
             <button
               type="button"
@@ -59,4 +59,3 @@ export function Accordion({
     </div>
   );
 }
-

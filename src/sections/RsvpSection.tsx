@@ -5,6 +5,10 @@ import { Button, ButtonSoft } from "@/components/Button";
 import { ErrorText, Helper, Input, Label, Textarea } from "@/components/Field";
 import { ApiErr, ApiOk, Attendance, RsvpRecord } from "@/lib/rsvp";
 import { clamp, isValidEmail, isValidPhone } from "@/lib/utils";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 type Status =
   | "idle"
@@ -62,6 +66,28 @@ export function RsvpSection() {
   }, [attendance, email, guestCount, name, phone]);
 
   async function submit() {
+    const isEditing = status === "editing";
+    const confirmResult = await MySwal.fire({
+      title: isEditing ? "Update RSVP?" : "Confirm RSVP",
+      html: `Are you sure you want to ${isEditing ? "update" : "submit"} your RSVP?<br/><br/><b>Attending:</b> ${attendance === "yes" ? "Yes" : "No"}<br/><b>Guests:</b> ${guestCount}`,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: isEditing ? "Yes, update" : "Yes, submit",
+      cancelButtonText: "Cancel",
+      customClass: {
+        popup: "card-bg-5 rounded-[36px] border border-white/45 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md",
+        title: "font-serif text-2xl text-ink",
+        htmlContainer: "font-sans text-sm leading-7 text-ink-muted",
+        confirmButton: "rounded-2xl bg-burgundy px-6 py-3 text-sm tracking-wide text-white font-sans mt-4 mx-2",
+        cancelButton: "rounded-2xl border border-white/45 bg-white/55 px-6 py-3 text-sm tracking-wide text-ink-muted backdrop-blur-md hover:bg-white/70 font-sans mt-4 mx-2",
+      },
+      buttonsStyling: false,
+    });
+
+    if (!confirmResult.isConfirmed) {
+      return;
+    }
+
     setErr(null);
     setStatus("submitting");
 
@@ -91,6 +117,19 @@ export function RsvpSection() {
     }
 
     setStatus("success");
+    MySwal.fire({
+      title: "Thank You!",
+      text: "Your RSVP has been saved.",
+      icon: "success",
+      confirmButtonText: "Close",
+      customClass: {
+        popup: "card-bg-5 rounded-[36px] border border-white/45 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md",
+        title: "font-serif text-2xl text-ink",
+        htmlContainer: "font-sans text-sm leading-7 text-ink-muted",
+        confirmButton: "rounded-2xl bg-burgundy px-6 py-3 text-sm tracking-wide text-white font-sans mt-4",
+      },
+      buttonsStyling: false,
+    });
   }
 
   async function lookup() {
@@ -133,7 +172,7 @@ export function RsvpSection() {
   return (
     <Section id="rsvp" title="RSVP" eyebrow="We’d love to celebrate with you">
       <Reveal>
-        <div className="rounded-[36px] border border-white/45 bg-white/34 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
+        <div className="card-bg-5 rounded-[36px] border border-white/45 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="space-y-6">
               <div>
@@ -269,13 +308,13 @@ export function RsvpSection() {
           </div>
 
           {status === "success" ? (
-            <p className="mt-6 font-sans text-sm leading-7 text-ink-muted">
+            <p className="mt-6 font-sans text-sm leading-7 text-ink-muted text-center">
               Thank you. Your RSVP has been saved.
             </p>
           ) : null}
 
           {status === "lookup" || status === "looking" || status === "notfound" ? (
-            <div className="mt-10 rounded-[28px] border border-white/45 bg-white/40 p-6">
+            <div className="card-bg-2 mt-10 rounded-[28px] border border-white/45 p-6">
               <p className="font-serif text-xl text-ink">Lookup RSVP</p>
               <p className="mt-2 font-sans text-sm leading-7 text-ink-muted">
                 Enter your email or phone number, then we’ll load your RSVP so you

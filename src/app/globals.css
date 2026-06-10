@@ -69,6 +69,65 @@ body::before {
   opacity: 0.28;
 }
 
+@layer components {
+  .card-bg-1,
+  .card-bg-2,
+  .card-bg-3,
+  .card-bg-4,
+  .card-bg-5 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Card backgrounds (requested): use the images in /public/background. */
+  .card-bg-1 {
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.78)
+      ),
+      url("/background/1.jpg");
+  }
+  .card-bg-2 {
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.78)
+      ),
+      url("/background/2.jpg");
+  }
+  .card-bg-3 {
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.78)
+      ),
+      url("/background/3.jpg");
+  }
+  .card-bg-4 {
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.78)
+      ),
+      url("/background/4.jpg");
+  }
+  .card-bg-5 {
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.78),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.78)
+      ),
+      url("/background/5.jpg");
+  }
+}
+
 ::selection {
   background: color-mix(in oklab, var(--peach) 65%, white);
 }

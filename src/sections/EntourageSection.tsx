@@ -10,7 +10,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-[32px] border border-white/45 bg-white/36 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.11)] backdrop-blur-md sm:p-9">
+    <div className="card-bg-2 rounded-[32px] border border-white/45 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.11)] backdrop-blur-md sm:p-9">
       <h3 className="font-serif text-2xl text-ink">{title}</h3>
       <div className="mt-5">{children}</div>
     </div>
@@ -88,4 +88,3 @@ export function EntourageSection() {
     </Section>
   );
 }
-

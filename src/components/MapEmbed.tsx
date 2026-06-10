@@ -16,7 +16,7 @@ export function MapEmbed({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-[28px] border border-white/45 bg-white/30 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md",
+        "card-bg-3 overflow-hidden rounded-[28px] border border-white/45 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md",
         className
       )}
     >
@@ -30,4 +30,3 @@ export function MapEmbed({
     </div>
   );
 }
-

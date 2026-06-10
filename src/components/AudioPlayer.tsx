@@ -69,6 +69,12 @@ export function AudioPlayer({
     audio.muted = muted;
   }, [muted]);
 
+  useEffect(() => {
+    if (!enabled) return;
+    if (!ready) return;
+    setMuted(false);
+  }, [enabled, ready]);
+
   if (!enabled || !available) return null;
 
   return (

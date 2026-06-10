@@ -8,7 +8,7 @@ export function TimelineSection() {
       <div className="grid gap-5">
         {weddingTimeline.map((item, idx) => (
           <Reveal key={item.title} delayMs={idx * 70}>
-            <div className="rounded-[32px] border border-white/45 bg-white/34 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.11)] backdrop-blur-md sm:p-9">
+            <div className="card-bg-2 rounded-[32px] border border-white/45 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.11)] backdrop-blur-md sm:p-9">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-sans text-xs tracking-[0.28em] uppercase text-ink-muted">
@@ -30,4 +30,3 @@ export function TimelineSection() {
     </Section>
   );
 }
-

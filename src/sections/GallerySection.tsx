@@ -6,8 +6,11 @@ import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 
+const MAX_INITIAL_PHOTOS = 6;
+
 export function GallerySection() {
   const [open, setOpen] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const active = useMemo(() => gallery.find((g) => g.src === open) ?? null, [open]);
   const portalTarget = typeof document === "undefined" ? null : document.body;
 
@@ -15,13 +18,15 @@ export function GallerySection() {
     <Section id="gallery" title="Photo Gallery" eyebrow="A few frames">
       <Reveal>
         <div className="columns-2 gap-4 [column-fill:_balance] sm:columns-3">
-          {gallery.map((g, idx) => (
+          {(showAll ? gallery : gallery.slice(0, MAX_INITIAL_PHOTOS)).map((g, idx) => {
+            const isLast = !showAll && gallery.length > MAX_INITIAL_PHOTOS && idx === MAX_INITIAL_PHOTOS - 1;
+            return (
             <button
               key={g.src}
               type="button"
-              onClick={() => setOpen(g.src)}
+              onClick={() => isLast ? setShowAll(true) : setOpen(g.src)}
               className={cn(
-                "mb-4 block w-full overflow-hidden rounded-[22px] border border-white/45 bg-white/28 shadow-[0_18px_60px_rgba(58,31,27,0.10)]",
+                "relative mb-4 block w-full overflow-hidden rounded-[22px] border border-white/45 bg-white/28 shadow-[0_18px_60px_rgba(58,31,27,0.10)]",
                 "transition-transform duration-300 hover:-translate-y-1"
               )}
               style={{ breakInside: "avoid" }}
@@ -34,8 +39,16 @@ export function GallerySection() {
                 priority={idx < 2}
                 className="h-auto w-full object-cover"
               />
+              {isLast && (
+                <div className="absolute inset-0 grid place-items-center bg-black/50 backdrop-blur-[2px]">
+                  <span className="font-sans text-xl font-medium tracking-wide text-white">
+                    +{gallery.length - MAX_INITIAL_PHOTOS + 1} More
+                  </span>
+                </div>
+              )}
             </button>
-          ))}
+            );
+          })}
         </div>
       </Reveal>
 

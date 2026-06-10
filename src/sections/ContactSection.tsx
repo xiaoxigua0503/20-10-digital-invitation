@@ -11,7 +11,7 @@ function ContactCard({
   phone: string;
 }) {
   return (
-    <div className="rounded-[32px] border border-white/45 bg-white/34 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md sm:p-9">
+    <div className="card-bg-3 rounded-[32px] border border-white/45 p-7 shadow-[0_22px_80px_rgba(58,31,27,0.10)] backdrop-blur-md sm:p-9">
       <p className="font-sans text-xs tracking-[0.28em] uppercase text-ink-muted">
         {role}
       </p>
@@ -37,4 +37,3 @@ export function ContactSection() {
     </Section>
   );
 }
-

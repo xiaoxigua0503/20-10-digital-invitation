@@ -13,8 +13,8 @@ export const wedding = {
     title: "Ceremony",
     venue: "Lokal ng Sandulayan",
     lines: [
-      "Distrito ng San Jose Mindoro Occidental",
-      "Sto. Cristo, Rizal",
+      "Sitio INC Brgy. Sto. Niño, Rizal",
+      "5103 Occidental Mindoro",
     ],
   },
   reception: {
@@ -25,12 +25,12 @@ export const wedding = {
 } as const;
 
 export const weddingTimeline = [
-  { time: "09:00", title: "Guest Arrival", note: "Warm welcome and seating" },
-  { time: "10:00", title: "Ceremony Start", note: wedding.ceremony.venue },
-  { time: "11:00", title: "Photo Session", note: "Family and entourage" },
-  { time: "12:00", title: "Reception", note: wedding.reception.venue },
-  { time: "13:00", title: "Dinner", note: "Sharing a meal together" },
-  { time: "14:30", title: "Program", note: "Speeches, games, and toasts" },
+  { time: "09:00 AM", title: "Guest Arrival", note: "Warm welcome and seating" },
+  { time: "9:45 AM", title: "Wedding Ceremony", note: wedding.ceremony.venue },
+  { time: "11:00 AM", title: "Photo Opportunities", note: "Family and entourage" },
+  { time: "12:00 NN", title: "Reception", note: wedding.reception.venue },
+  { time: "", title: "Lunch", note: "Sharing a meal together" },
+  { time: "", title: "Program", note: "Speeches, music, and toasts" },
 ] as const;
 
 export const entourage = {
@@ -55,7 +55,7 @@ export const entourage = {
   groomsmen: [
     "Mr. Carlos Bon B. Sunga",
     "Mr. Jaypee E. Estandian",
-    "Mr. Jacob Guran",
+    "Mr. Jacob I. Guran",
     "Mr. Josh Will S. Gasmẽna",
   ],
   bridesmaids: [
@@ -87,11 +87,7 @@ export const faq = [
   },
 ] as const;
 
-export const gallery = [
-  { src: galleryImages[0], alt: "Pre-wedding photo 1" },
-  { src: galleryImages[1], alt: "Pre-wedding photo 2" },
-  { src: galleryImages[2], alt: "Wedding details — moment 3" },
-  { src: galleryImages[3], alt: "Wedding details — moment 4" },
-  { src: galleryImages[4], alt: "Wedding details — moment 5" },
-  { src: galleryImages[5], alt: "Wedding details — moment 6" },
-] as const;
+export const gallery = galleryImages.map((src, idx) => ({
+  src,
+  alt: `Gallery photo ${idx + 1}`,
+}));

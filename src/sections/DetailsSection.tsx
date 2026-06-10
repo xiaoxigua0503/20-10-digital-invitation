@@ -12,7 +12,7 @@ function DetailCard({
   lines: readonly string[];
 }) {
   return (
-    <div className="rounded-[34px] border border-white/45 bg-white/34 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
+    <div className="card-bg-3 rounded-[34px] border border-white/45 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
       <p className="font-sans text-xs tracking-[0.28em] uppercase text-ink-muted">
         {title}
       </p>
@@ -50,4 +50,3 @@ export function DetailsSection() {
     </Section>
   );
 }
-

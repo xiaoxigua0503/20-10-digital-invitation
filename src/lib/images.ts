@@ -15,20 +15,13 @@ export function textToImageUrl(prompt: string, imageSize: ImageSize) {
 export const galleryImages = [
   "/gallery/pre-wed1.png",
   "/gallery/pre-wed2.png",
-  textToImageUrl(
-    "luxury bohemian wedding flat lay, silk ribbon, wax seal, vintage paper texture, soft natural light, warm creamy peach tones, dusty rose florals, editorial photography, high detail, shallow depth of field",
-    "portrait_4_3"
-  ),
-  textToImageUrl(
-    "romantic vintage wedding stationery, engraved monogram, floral arrangement, muted dusty blue accents, airy warm lighting, film grain, editorial",
-    "portrait_4_3"
-  ),
-  textToImageUrl(
-    "earthy romantic bouquet detail, terracotta and dusty rose flowers, soft cream background, warm airy mood, premium editorial photo",
-    "portrait_4_3"
-  ),
-  textToImageUrl(
-    "wedding rings on textured linen, subtle bokeh, deep burgundy accent ribbon, warm sophisticated light, cinematic",
-    "portrait_4_3"
-  ),
+  "/gallery/pre-wed310.JPEG",
+  "/gallery/pre-wed4.JPG",
+  "/gallery/pre-wed5.jpg",
+  "/gallery/pre-wed6.JPG",
+  "/gallery/pre-wed8.JPG",
+  "/gallery/pre-wed9.JPEG",
+  "/gallery/DSC08182.JPEG",
+  "/gallery/PromiseRing.jpg",
+  "/gallery/WeddingRing.jpeg",
 ] as const;
