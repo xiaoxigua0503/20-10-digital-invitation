@@ -3,11 +3,13 @@ import { Reveal } from "@/components/Reveal";
 import { gallery } from "@/lib/wedding";
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 
 export function GallerySection() {
   const [open, setOpen] = useState<string | null>(null);
   const active = useMemo(() => gallery.find((g) => g.src === open) ?? null, [open]);
+  const portalTarget = typeof document === "undefined" ? null : document.body;
 
   return (
     <Section id="gallery" title="Photo Gallery" eyebrow="A few frames">
@@ -37,38 +39,43 @@ export function GallerySection() {
         </div>
       </Reveal>
 
-      <div
-        className={cn(
-          "fixed inset-0 z-50 grid place-items-center bg-black/60 p-6 transition-opacity duration-200",
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        )}
-        onClick={() => setOpen(null)}
-        role="dialog"
-        aria-modal="true"
-      >
-        {active ? (
-          <div
-            className="relative max-h-[86vh] w-full max-w-[980px] overflow-hidden rounded-[28px] border border-white/20 bg-black/20 shadow-[0_40px_120px_rgba(0,0,0,0.40)] backdrop-blur-sm"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={active.src}
-              alt={active.alt}
-              width={1400}
-              height={1800}
-              className="h-auto max-h-[86vh] w-full object-contain"
-              priority
-            />
-            <button
-              type="button"
-              className="absolute right-4 top-4 rounded-full bg-white/15 px-4 py-2 text-xs tracking-wide text-white backdrop-blur-md transition-colors hover:bg-white/25"
+      {portalTarget
+        ? createPortal(
+            <div
+              className={cn(
+                "fixed inset-0 z-50 grid place-items-center bg-black/60 p-6 transition-opacity duration-200",
+                open ? "opacity-100" : "pointer-events-none opacity-0"
+              )}
               onClick={() => setOpen(null)}
+              role="dialog"
+              aria-modal="true"
             >
-              Close
-            </button>
-          </div>
-        ) : null}
-      </div>
+              {active ? (
+                <div
+                  className="relative max-h-[86vh] w-full max-w-[980px] overflow-hidden rounded-[28px] border border-white/20 bg-black/20 shadow-[0_40px_120px_rgba(0,0,0,0.40)] backdrop-blur-sm"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Image
+                    src={active.src}
+                    alt={active.alt}
+                    width={1400}
+                    height={1800}
+                    className="h-auto max-h-[86vh] w-full object-contain"
+                    priority
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-4 top-4 rounded-full bg-white/15 px-4 py-2 text-xs tracking-wide text-white backdrop-blur-md transition-colors hover:bg-white/25"
+                    onClick={() => setOpen(null)}
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : null}
+            </div>,
+            portalTarget
+          )
+        : null}
     </Section>
   );
 }

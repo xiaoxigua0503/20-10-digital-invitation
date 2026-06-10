@@ -37,7 +37,7 @@ export const entourage = {
   principalSponsors: {
     left: [
       "Bro. Jimmy D. Flores",
-      "Mr. Robert Angelo S. Pablo",
+      "Mr. Robert Angelo D. Pablo",
       "Mr. Joseph E. Salgado",
       "Bro. Hector Roy B. Casem",
       "Mr. Chester P. Ruiz",
@@ -55,7 +55,7 @@ export const entourage = {
   groomsmen: [
     "Mr. Carlos Bon B. Sunga",
     "Mr. Jaypee E. Estandian",
-    "Mr. Fernan E. Serna",
+    "Mr. Jacob Guran",
     "Mr. Josh Will S. Gasmẽna",
   ],
   bridesmaids: [
@@ -88,8 +88,8 @@ export const faq = [
 ] as const;
 
 export const gallery = [
-  { src: galleryImages[0], alt: "Wedding details — moment 1" },
-  { src: galleryImages[1], alt: "Wedding details — moment 2" },
+  { src: galleryImages[0], alt: "Pre-wedding photo 1" },
+  { src: galleryImages[1], alt: "Pre-wedding photo 2" },
   { src: galleryImages[2], alt: "Wedding details — moment 3" },
   { src: galleryImages[3], alt: "Wedding details — moment 4" },
   { src: galleryImages[4], alt: "Wedding details — moment 5" },

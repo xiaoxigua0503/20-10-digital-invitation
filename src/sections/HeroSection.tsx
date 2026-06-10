@@ -60,7 +60,7 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
               Together with our loved ones
             </p>
             <div className="mt-10 flex flex-col gap-3">
-              <h1 className="font-serif text-5xl leading-[0.95] text-ink sm:text-7xl">
+              <h1 className="text-center font-serif text-5xl leading-[0.95] text-ink sm:text-7xl">
                 <span className="block">{wedding.couple.bride}</span>
                 <span
                   className={cn(
@@ -106,4 +106,3 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
     </header>
   );
 }
-
