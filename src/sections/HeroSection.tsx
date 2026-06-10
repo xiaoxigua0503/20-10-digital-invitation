@@ -32,8 +32,7 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
   return (
     <header className="relative overflow-hidden px-5 pt-28 sm:px-8 sm:pt-32">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -left-28 top-10 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle_at_30%_30%,color-mix(in_oklab,var(--peach)_55%,transparent),transparent_62%)] blur-2xl" />
-        <div className="absolute -right-24 top-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_40%_35%,color-mix(in_oklab,var(--dusty-blue)_48%,transparent),transparent_62%)] blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#faf6f1] via-[#f3ece5] to-[#faf6f1]" />
       </div>
 
       <Container>
@@ -55,35 +54,44 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
             }
           />
 
-          <div className="relative rounded-[36px] border border-white/45 bg-white/38 px-6 py-14 shadow-[0_30px_110px_rgba(58,31,27,0.16)] backdrop-blur-md sm:px-14 sm:py-18">
-            <p className="font-sans text-xs tracking-[0.34em] uppercase text-ink-muted/85">
-              Together with our loved ones
-            </p>
-            <div className="mt-10 flex flex-col gap-3">
-              <h1 className="text-center font-serif text-5xl leading-[0.95] text-ink sm:text-7xl">
-                <span className="block">{wedding.couple.bride}</span>
-                <span
-                  className={cn(
-                    "mt-3 block text-3xl text-ink/55 sm:text-4xl"
-                  )}
-                >
-                  &amp;
-                </span>
-                <span className="mt-3 block">{wedding.couple.groom}</span>
-              </h1>
-              <div className="mt-6 h-px w-28 bg-gradient-to-r from-burgundy/55 to-transparent" />
-              <p className="mt-6 max-w-xl font-sans text-base leading-8 text-ink-muted sm:text-lg">
-                You are warmly invited to celebrate our wedding day.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-[36px] border border-white/45 shadow-[0_30px_110px_rgba(58,31,27,0.16)]">
+            <div className="absolute inset-0 bg-[url('/gallery/cardbg.jpg')] bg-cover bg-[position:35%_center] sm:bg-center" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/55 to-white/80" />
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-              <Button type="button" onClick={onRsvp} className="w-full sm:w-auto">
-                RSVP
-              </Button>
-              <p className="font-sans text-sm tracking-wide text-ink-muted">
-                {wedding.date.display}
+            <div className="relative px-6 py-14 backdrop-blur-[1px] sm:px-14 sm:py-18">
+              <p className="font-sans text-xs tracking-[0.34em] uppercase text-ink-muted/85">
+                Together with our loved ones
               </p>
+              <div className="mt-10 flex flex-col gap-3">
+                <h1 className="text-center font-serif text-5xl leading-[0.95] text-ink sm:text-7xl">
+                  <span className="block">{wedding.couple.bride}</span>
+                  <span
+                    className={cn(
+                      "mt-3 block text-3xl text-ink/55 sm:text-4xl"
+                    )}
+                  >
+                    &amp;
+                  </span>
+                  <span className="mt-3 block">{wedding.couple.groom}</span>
+                </h1>
+                <div className="mt-6 h-px w-28 bg-gradient-to-r from-burgundy/55 to-transparent" />
+                <p className="mt-6 max-w-xl font-sans text-base leading-8 text-ink-muted sm:text-lg">
+                  You are warmly invited to celebrate our wedding day.
+                </p>
+              </div>
+
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+                <Button
+                  type="button"
+                  onClick={onRsvp}
+                  className="w-full sm:w-auto"
+                >
+                  RSVP
+                </Button>
+                <p className="font-sans text-sm tracking-wide text-ink-muted">
+                  {wedding.date.display}
+                </p>
+              </div>
             </div>
           </div>
 

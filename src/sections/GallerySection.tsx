@@ -39,39 +39,34 @@ export function GallerySection() {
         </div>
       </Reveal>
 
-      {portalTarget
+      {open && active && portalTarget
         ? createPortal(
             <div
-              className={cn(
-                "fixed inset-0 z-50 grid place-items-center bg-black/60 p-6 transition-opacity duration-200",
-                open ? "opacity-100" : "pointer-events-none opacity-0"
-              )}
+              className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-6"
               onClick={() => setOpen(null)}
               role="dialog"
               aria-modal="true"
             >
-              {active ? (
-                <div
-                  className="relative max-h-[86vh] w-full max-w-[980px] overflow-hidden rounded-[28px] border border-white/20 bg-black/20 shadow-[0_40px_120px_rgba(0,0,0,0.40)] backdrop-blur-sm"
-                  onClick={(e) => e.stopPropagation()}
+              <div
+                className="relative max-h-[86vh] w-full max-w-[980px] overflow-hidden rounded-[28px] border border-white/20 bg-black/20 shadow-[0_40px_120px_rgba(0,0,0,0.40)] backdrop-blur-sm"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={active.src}
+                  alt={active.alt}
+                  width={1400}
+                  height={1800}
+                  className="h-auto max-h-[86vh] w-full object-contain"
+                  priority
+                />
+                <button
+                  type="button"
+                  className="absolute right-4 top-4 rounded-full bg-white/15 px-4 py-2 text-xs tracking-wide text-white backdrop-blur-md transition-colors hover:bg-white/25"
+                  onClick={() => setOpen(null)}
                 >
-                  <Image
-                    src={active.src}
-                    alt={active.alt}
-                    width={1400}
-                    height={1800}
-                    className="h-auto max-h-[86vh] w-full object-contain"
-                    priority
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-4 top-4 rounded-full bg-white/15 px-4 py-2 text-xs tracking-wide text-white backdrop-blur-md transition-colors hover:bg-white/25"
-                    onClick={() => setOpen(null)}
-                  >
-                    Close
-                  </button>
-                </div>
-              ) : null}
+                  Close
+                </button>
+              </div>
             </div>,
             portalTarget
           )
