@@ -14,7 +14,7 @@ export function textToImageUrl(prompt: string, imageSize: ImageSize) {
 
 export const galleryImages = [
   "/gallery/pre-wed1.png",
-  "/gallery/pre-wed2.png",
+  "/gallery/pre-wed2.JPEG",
   "/gallery/pre-wed310.JPEG",
   "/gallery/pre-wed4.JPG",
   "/gallery/pre-wed5.jpg",
