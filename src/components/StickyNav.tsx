@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type Item = { id: string; label: string };
@@ -11,6 +11,7 @@ export function StickyNav({
   items: Item[];
 }) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
+  const navRef = useRef<HTMLElement>(null);
 
   const ids = useMemo(() => items.map((i) => i.id), [items]);
 
@@ -34,6 +35,17 @@ export function StickyNav({
     return () => obs.disconnect();
   }, [ids]);
 
+  // Scroll the nav bar horizontally so the active button is centered
+  useEffect(() => {
+    if (!activeId || !navRef.current) return;
+    const nav = navRef.current;
+    const btn = nav.querySelector<HTMLElement>(`[data-nav-id="${activeId}"]`);
+    if (!btn) return;
+    const navCenter = nav.offsetWidth / 2;
+    const btnCenter = btn.offsetLeft + btn.offsetWidth / 2;
+    nav.scrollTo({ left: btnCenter - navCenter, behavior: "smooth" });
+  }, [activeId]);
+
   function scrollToId(id: string) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -49,12 +61,13 @@ export function StickyNav({
     >
       <div className="mx-auto w-full max-w-6xl">
         <div className="rounded-[999px] border border-white/30 bg-white/55 px-3 py-2 shadow-[0_20px_60px_rgba(108,22,19,0.10)] backdrop-blur-md">
-          <nav className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <nav ref={navRef} className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {items.map((it) => {
               const active = it.id === activeId;
               return (
                 <button
                   key={it.id}
+                  data-nav-id={it.id}
                   type="button"
                   onClick={() => scrollToId(it.id)}
                   className={cn(
@@ -74,4 +87,3 @@ export function StickyNav({
     </div>
   );
 }
-
