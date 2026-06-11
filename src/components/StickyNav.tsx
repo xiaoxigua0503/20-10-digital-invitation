@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type Item = { id: string; label: string };
@@ -13,29 +13,37 @@ export function StickyNav({
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
   const navRef = useRef<HTMLElement>(null);
 
-  const ids = useMemo(() => items.map((i) => i.id), [items]);
-
+  // Reliable scroll-based active section detection
   useEffect(() => {
-    const els = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-    if (!els.length) return;
+    const getActiveId = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      // Pick the section whose top is closest to 30% down the viewport
+      const triggerY = scrollY + viewportHeight * 0.3;
 
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const vis = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
-        if (vis?.target?.id) setActiveId(vis.target.id);
-      },
-      { threshold: [0.25, 0.4, 0.55], rootMargin: "-15% 0px -70% 0px" }
-    );
+      let bestId = items[0]?.id ?? "";
+      let bestTop = -Infinity;
 
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, [ids]);
+      for (const { id } of items) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const elTop = el.getBoundingClientRect().top + scrollY;
+        if (elTop <= triggerY && elTop > bestTop) {
+          bestTop = elTop;
+          bestId = id;
+        }
+      }
 
-  // Scroll the nav bar horizontally so the active button is centered
+      setActiveId(bestId);
+    };
+
+    // Run on mount and on every scroll
+    getActiveId();
+    window.addEventListener("scroll", getActiveId, { passive: true });
+    return () => window.removeEventListener("scroll", getActiveId);
+  }, [items]);
+
+  // Auto-center the active nav button within the nav bar
   useEffect(() => {
     if (!activeId || !navRef.current) return;
     const nav = navRef.current;
@@ -61,7 +69,10 @@ export function StickyNav({
     >
       <div className="mx-auto w-full max-w-6xl">
         <div className="rounded-[999px] border border-white/30 bg-white/55 px-3 py-2 shadow-[0_20px_60px_rgba(108,22,19,0.10)] backdrop-blur-md">
-          <nav ref={navRef} className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <nav
+            ref={navRef}
+            className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             {items.map((it) => {
               const active = it.id === activeId;
               return (
@@ -71,7 +82,7 @@ export function StickyNav({
                   type="button"
                   onClick={() => scrollToId(it.id)}
                   className={cn(
-                    "shrink-0 rounded-full px-3 py-2 text-xs tracking-wide transition-colors",
+                    "shrink-0 rounded-full px-3 py-2 text-xs tracking-wide transition-colors duration-200",
                     active
                       ? "bg-burgundy text-white"
                       : "text-ink-muted hover:bg-peach/35 hover:text-ink"
