@@ -17,7 +17,7 @@ function DetailCard({
         {title}
       </p>
       <h3 className="mt-3 font-serif text-2xl text-ink">{venue}</h3>
-      <p className="mt-4 font-sans text-sm leading-7 text-ink-muted">
+      <p className="mt-4 whitespace-pre-line font-sans text-sm leading-7 text-ink-muted">
         {lines.join(" · ")}
       </p>
       <div className="mt-7 h-px w-full bg-gradient-to-r from-burgundy/35 via-terracotta/18 to-transparent" />
@@ -30,8 +30,8 @@ function DetailCard({
 
 export function DetailsSection() {
   return (
-    <Section id="details" title="Ceremony & Reception Details" eyebrow="The day">
-      <div className="grid gap-6 sm:grid-cols-2">
+    <Section id="details" title="Ceremony, Reception & Party" eyebrow="The day">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Reveal>
           <DetailCard
             title="Ceremony"
@@ -44,6 +44,13 @@ export function DetailsSection() {
             title="Reception"
             venue={wedding.reception.venue}
             lines={wedding.reception.lines}
+          />
+        </Reveal>
+        <Reveal delayMs={240}>
+          <DetailCard
+            title={wedding.party.title}
+            venue={wedding.party.venue}
+            lines={wedding.party.lines}
           />
         </Reveal>
       </div>

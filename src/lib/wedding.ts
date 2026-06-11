@@ -22,6 +22,12 @@ export const wedding = {
     venue: "Grandiya's Venue Hall",
     lines: ["Aroma Center, Gate 1", "San Roque, San Jose", "Occidental Mindoro"],
   },
+  party: {
+    title: "Family & Friends Dinner",
+    venue: "Paredes Private Resort",
+    lines: ["Murtha, San Jose", "\nOccidental Mindoro"],
+    mapQuery: "12°26'16.4\"N 121°06'10.8\"E",
+  },
 } as const;
 
 export const weddingTimeline = [
@@ -31,6 +37,7 @@ export const weddingTimeline = [
   { time: "12:00 NN", title: "Reception", note: wedding.reception.venue },
   { time: "", title: "Lunch", note: "Sharing a meal together" },
   { time: "", title: "Program", note: "Speeches, music, and toasts" },
+  { time: "6:00 PM", title: "Family & Friends Dinner", note: "Paredes Private Resort" },
 ] as const;
 
 export const entourage = {

@@ -7,12 +7,14 @@ function VenueCard({
   title,
   venue,
   lines,
+  mapQuery,
 }: {
   title: string;
   venue: string;
   lines: readonly string[];
+  mapQuery?: string;
 }) {
-  const query = [venue, ...lines].join(", ");
+  const query = mapQuery || [venue, ...lines].join(", ");
   const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     query
   )}`;
@@ -23,7 +25,7 @@ function VenueCard({
         {title}
       </p>
       <h3 className="mt-3 font-serif text-2xl text-ink">{venue}</h3>
-      <p className="mt-4 font-sans text-sm leading-7 text-ink-muted">
+      <p className="mt-4 whitespace-pre-line font-sans text-sm leading-7 text-ink-muted">
         {lines.join(" · ")}
       </p>
       <div className="mt-6">
@@ -43,8 +45,8 @@ function VenueCard({
 
 export function VenueSection() {
   return (
-    <Section id="venues" title="Ceremony & Reception" eyebrow="Where to be">
-      <div className="grid gap-6 sm:grid-cols-2">
+    <Section id="venues" title="Ceremony, Reception & Party" eyebrow="Where to be">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Reveal>
           <VenueCard
             title="Ceremony"
@@ -57,6 +59,14 @@ export function VenueSection() {
             title="Reception"
             venue={wedding.reception.venue}
             lines={wedding.reception.lines}
+          />
+        </Reveal>
+        <Reveal delayMs={240}>
+          <VenueCard
+            title={wedding.party.title}
+            venue={wedding.party.venue}
+            lines={wedding.party.lines}
+            mapQuery={(wedding.party as any).mapQuery}
           />
         </Reveal>
       </div>

@@ -26,9 +26,11 @@ export const metadata: Metadata = {
     description:
       "You are warmly invited to the wedding of Christine Faner and Angelo Pablo on June 19, 2026.",
     type: "website",
+    images: ["/intro/1Logo.jpg"],
   },
   icons: {
-    icon: "/icon.svg",
+    icon: "/intro/1Logo.jpg",
+    apple: "/intro/1Logo.jpg",
   },
 };
 
