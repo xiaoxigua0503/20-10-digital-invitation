@@ -119,7 +119,7 @@ export function RsvpSection() {
     setStatus("success");
     MySwal.fire({
       title: "Thank You!",
-      text: "Your RSVP has been saved.",
+      html: "Your RSVP has been saved.<br/><br/><span class='text-sm opacity-90'>Confirmation has been sent to your email inbox!<br/> (Please check spam if not found)</span>",
       icon: "success",
       confirmButtonText: "Close",
       customClass: {

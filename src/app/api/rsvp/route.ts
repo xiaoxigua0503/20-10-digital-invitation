@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { callAppsScript } from "@/lib/server/appsScriptClient";
+import { sendRsvpConfirmation } from "@/lib/server/email";
 import { RsvpUpsertRequest } from "@/lib/rsvp";
 import { clamp, isValidEmail, isValidPhone } from "@/lib/utils";
 
@@ -38,6 +39,15 @@ export async function POST(req: Request) {
     action: "upsert",
     payload: { name, email, phone, attendance, guestCount, message },
   });
+
+  if (result.ok) {
+    try {
+      await sendRsvpConfirmation(email, name, attendance, guestCount);
+    } catch (err) {
+      console.error("Failed to send confirmation email:", err);
+      // We still return success to the client even if the email fails.
+    }
+  }
 
   const status = result.ok ? 200 : 502;
   return NextResponse.json(result, { status });

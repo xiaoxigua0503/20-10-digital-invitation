@@ -21,7 +21,4 @@ export const galleryImages = [
   "/gallery/pre-wed6.JPG",
   "/gallery/pre-wed8.JPG",
   "/gallery/pre-wed9.JPEG",
-  "/gallery/DSC08182.JPEG",
-  "/gallery/PromiseRing.jpg",
-  "/gallery/WeddingRing.jpeg",
 ] as const;

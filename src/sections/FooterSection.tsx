@@ -13,9 +13,29 @@ export function FooterSection() {
             {wedding.reception.venue}
           </p>
           <div className="mt-8 h-px w-full bg-gradient-to-r from-burgundy/35 via-terracotta/18 to-transparent" />
-          <p className="mt-6 font-sans text-xs tracking-wide text-ink-muted/80">
-            Kindly RSVP as soon as possible.
-          </p>
+          <div className="mt-6 flex flex-col space-y-2 font-sans text-xs tracking-wide text-ink-muted/80">
+            <p className="font-semibold uppercase tracking-widest text-ink/70">
+              Crafted with love by friends
+            </p>
+            <p>
+              Digital RSVP & Website Development by{" "}
+              <a
+                href="mailto:nikoalfonsop@gmail.com"
+                className="transition-colors hover:text-ink"
+              >
+                Nico Alfonso Pangilinan
+              </a>
+            </p>
+            <p>
+              Physical Invitations & Souvenir Design by{" "}
+              <a
+                href="mailto:princesscatherinemendoza03@gmail.com"
+                className="transition-colors hover:text-ink"
+              >
+                Princess Catherine Mendoza
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
