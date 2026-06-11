@@ -221,22 +221,35 @@ export function IntroEnvelope({
                       }}
                     >
                       <div
-                        className="h-full w-full rounded-[16px] border border-[#eadbcc] bg-[#f9f3ec] shadow-[0_18px_40px_rgba(100,70,47,0.16)] sm:rounded-[20px]"
+                        className="h-full w-full rounded-[16px] border border-[#eadbcc] bg-[#f9f3ec] p-2 shadow-[0_18px_40px_rgba(100,70,47,0.16)] sm:rounded-[20px] sm:p-3"
                         style={letterTexture}
                       >
-                        <div className="flex h-full flex-col justify-between p-4 sm:p-6">
-                          <div>
-                            <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#8f7668] sm:text-[11px]">
+                        <div className="relative flex h-full flex-col items-center justify-center rounded-[10px] border-[0.5px] border-[#d5bba6] sm:rounded-[14px]">
+                          {/* Top-left corner decoration */}
+                          <svg className="absolute top-3 left-3 text-[#c2a38b] w-5 h-5 sm:w-7 sm:h-7 opacity-70" viewBox="0 0 40 40" fill="none">
+                            <path d="M0 0h40v1H1v39H0V0z" fill="currentColor"/>
+                          </svg>
+                          {/* Bottom-right corner decoration */}
+                          <svg className="absolute bottom-3 right-3 text-[#c2a38b] w-5 h-5 sm:w-7 sm:h-7 opacity-70" viewBox="0 0 40 40" fill="none">
+                            <path d="M40 40H0v-1h39V0h1v40z" fill="currentColor"/>
+                          </svg>
+
+                          <div className="flex flex-col items-center text-center px-4">
+                            <p className="mb-4 font-sans text-[9px] uppercase tracking-[0.3em] text-[#937b6c] sm:mb-5 sm:text-[10px]">
                               You are invited
                             </p>
-                            <div className="mt-3 h-px w-14 bg-gradient-to-r from-[#b3907a] to-transparent sm:w-20" />
-                          </div>
-                          <div className="pb-2 text-center">
-                            <p className="font-serif text-3xl text-[#725646] sm:text-5xl">{monogram}</p>
-                          </div>
-                           <div className="pb-2 text-center">
-                          </div>
-                          <div className="pb-2 text-center">
+                            
+                            <div className="flex flex-col items-center space-y-1 sm:space-y-2">
+                              <h2 className="font-serif text-2xl text-[#6C2B29] sm:text-3xl">Christine</h2>
+                              <span className="font-serif text-lg italic text-[#c2a38b] sm:text-xl">&amp;</span>
+                              <h2 className="font-serif text-2xl text-[#6C2B29] sm:text-3xl">Angelo</h2>
+                            </div>
+
+                            <div className="my-5 h-px w-12 bg-gradient-to-r from-transparent via-[#b3907a] to-transparent sm:my-6 sm:w-16" />
+
+                            <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#937b6c] sm:text-[11px]">
+                              June 19, 2026
+                            </p>
                           </div>
                         </div>
                       </div>
