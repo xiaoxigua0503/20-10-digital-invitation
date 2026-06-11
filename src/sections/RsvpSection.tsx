@@ -10,6 +10,48 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
+// ISO format for calendar: YYYYMMDDTHHMMSS
+const CAL_START = "20260619T020000Z"; // 10:00 AM PHT = 02:00 UTC
+const CAL_END   = "20260619T100000Z"; // 06:00 PM PHT = 10:00 UTC
+const CAL_TITLE = "Christine & Angelo's Wedding";
+const CAL_LOCATION = "Lokal ng Sandulayan, Sitio INC Brgy. Sto. Niño, Rizal, 5103 Occidental Mindoro";
+const CAL_DESCRIPTION = "You are warmly invited to the wedding of Christine Faner and Angelo Pablo.";
+
+function buildGoogleCalendarUrl() {
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: CAL_TITLE,
+    dates: `${CAL_START}/${CAL_END}`,
+    details: CAL_DESCRIPTION,
+    location: CAL_LOCATION,
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+function downloadIcs() {
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Christine & Angelo Wedding//EN",
+    "BEGIN:VEVENT",
+    `DTSTART:${CAL_START}`,
+    `DTEND:${CAL_END}`,
+    `SUMMARY:${CAL_TITLE}`,
+    `DESCRIPTION:${CAL_DESCRIPTION}`,
+    `LOCATION:${CAL_LOCATION}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "christine-and-angelo-wedding.ics";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 type Status =
   | "idle"
   | "submitting"
@@ -119,7 +161,41 @@ export function RsvpSection() {
     setStatus("success");
     MySwal.fire({
       title: "Thank You!",
-      html: "Your RSVP has been saved.<br/><br/><span class='text-sm opacity-90'>Confirmation has been sent to your email inbox!<br/> (Please check spam if not found)</span>",
+      html: (
+        <div className="font-sans text-sm leading-7 text-ink-muted">
+          <p>Your RSVP has been saved.</p>
+          <p className="text-xs opacity-80 mt-1">
+            Confirmation has been sent to your email inbox!<br />
+            (Please check spam if not found)
+          </p>
+          {attendance === "yes" && (
+            <div className="mt-5 border-t border-black/10 pt-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-ink/50 mb-3">
+                Save the Date
+              </p>
+              <div className="flex flex-col gap-2">
+                <a
+                  href={buildGoogleCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/45 bg-white/55 px-4 py-2.5 text-xs tracking-wide text-ink-muted backdrop-blur-md transition-colors hover:bg-white/70 hover:text-ink"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  Add to Google Calendar
+                </a>
+                <button
+                  type="button"
+                  onClick={downloadIcs}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/45 bg-white/55 px-4 py-2.5 text-xs tracking-wide text-ink-muted backdrop-blur-md transition-colors hover:bg-white/70 hover:text-ink"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  Download .ics (Apple / Outlook)
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      ),
       icon: "success",
       confirmButtonText: "Close",
       customClass: {
