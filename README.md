@@ -286,16 +286,23 @@ Confirmation emails embed a wedding-palette background image using `cid:` inline
 
 ## Project Gallery
 
-| Section                                  | Description                                                    |
-| ---------------------------------------- | -------------------------------------------------------------- |
-| `public/snapshots/envelope_closed.png`   | Sealed envelope with wax seal, idle floating animation         |
-| `public/snapshots/envelope_open.png`     | Flap rotating open via 3D `rotateX` transform                  |
-| `public/snapshots/envelope_revealed.png` | Invitation letter lifting out before full reveal               |
-| `public/snapshots/hero_section.png`      | Hero card with couple's names, wedding date, and RSVP CTA      |
-| `public/snapshots/details_section.png`   | Venue cards — Ceremony, Reception, Dinner — with embedded Maps |
-| `public/snapshots/attire_section.png`    | Dress code palette with interactive color swatches             |
-| `public/snapshots/gallery_section.png`   | Masonry pre-wedding photo grid with lightbox                   |
-| `public/snapshots/rsvp_section.png`      | RSVP form — lookup state and submission state                  |
+**Intro — 3D Envelope Animation**
+
+| Closed | Opening | Revealed |
+|:---:|:---:|:---:|
+| ![Sealed envelope with wax seal](public/snapshots/envelope_closed.png) | ![Envelope flap rotating open via 3D rotateX transform](public/snapshots/envelope_open.png) | ![Invitation letter lifting out of envelope](public/snapshots/envelope_revealed.png) |
+
+**Main Invitation Sections**
+
+![Hero section — couple names, wedding date, and RSVP call-to-action](public/snapshots/hero_section.png)
+
+![Event details — Ceremony, Reception, and Dinner venue cards with embedded Maps](public/snapshots/details_section.png)
+
+![Dress code section — palette swatches for men's and women's attire](public/snapshots/attire_section.png)
+
+![Pre-wedding photo gallery — masonry grid with full-screen lightbox](public/snapshots/gallery_section.png)
+
+![Interactive RSVP section — lookup form and submission state](public/snapshots/rsvp_section.png)
 
 ---
 
