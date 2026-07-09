@@ -290,19 +290,19 @@ Confirmation emails embed a wedding-palette background image using `cid:` inline
 
 | Closed | Opening | Revealed |
 |:---:|:---:|:---:|
-| ![Sealed envelope with wax seal](public/snapshots/envelope_closed.png) | ![Envelope flap rotating open via 3D rotateX transform](public/snapshots/envelope_open.png) | ![Invitation letter lifting out of envelope](public/snapshots/envelope_revealed.png) |
+| ![Sealed envelope with wax seal](./public/snapshots/envelope_closed.png) | ![Envelope flap rotating open via 3D rotateX transform](./public/snapshots/envelope_open.png) | ![Invitation letter lifting out of envelope](./public/snapshots/envelope_revealed.png) |
 
 **Main Invitation Sections**
 
-![Hero section — couple names, wedding date, and RSVP call-to-action](public/snapshots/hero_section.png)
+![Hero section — couple names, wedding date, and RSVP call-to-action](./public/snapshots/hero_section.png)
 
-![Event details — Ceremony, Reception, and Dinner venue cards with embedded Maps](public/snapshots/details_section.png)
+![Event details — Ceremony, Reception, and Dinner venue cards with embedded Maps](./public/snapshots/details_section.png)
 
-![Dress code section — palette swatches for men's and women's attire](public/snapshots/attire_section.png)
+![Dress code section — palette swatches for men's and women's attire](./public/snapshots/attire_section.png)
 
-![Pre-wedding photo gallery — masonry grid with full-screen lightbox](public/snapshots/gallery_section.png)
+![Pre-wedding photo gallery — masonry grid with full-screen lightbox](./public/snapshots/gallery_section.png)
 
-![Interactive RSVP section — lookup form and submission state](public/snapshots/rsvp_section.png)
+![Interactive RSVP section — lookup form and submission state](./public/snapshots/rsvp_section.png)
 
 ---
 
