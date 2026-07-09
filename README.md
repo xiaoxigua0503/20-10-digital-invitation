@@ -7,6 +7,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwindcss)
 ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-tinandgelo.vercel.app-8b5cf6?style=flat-square&logo=vercel)](https://tinandgelo.vercel.app/)
 
 ---
 
@@ -281,6 +282,16 @@ Confirmation emails embed a wedding-palette background image using `cid:` inline
 | **i18n**               | Multi-language support (Filipino / English) using `next-intl`                                                      |
 | **Optimistic UI**      | Optimistic form state update on submission with server reconciliation on response                                  |
 | **Media Optimization** | Automated `next/image` AVIF conversion pipeline for gallery images                                                 |
+
+---
+
+## Live Demo
+
+**[🔗 tinandgelo.vercel.app](https://tinandgelo.vercel.app/)**
+
+Scan the QR code to open the live invitation on your phone:
+
+![QR code — scan to open live demo at tinandgelo.vercel.app](./public/snapshots/live_demo_view.png)
 
 ---
 
