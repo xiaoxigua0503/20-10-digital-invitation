@@ -25,10 +25,25 @@ export async function callAppsScript<T>({
     cache: "no-store",
   });
 
-  const data = (await res.json().catch(() => null)) as unknown;
-  if (!data || typeof data !== "object") {
-    return { ok: false, error: `Invalid JSON response (HTTP ${res.status})` };
-  }
+  const responseText = await res.text();
+
+console.log("Apps Script HTTP status:", res.status);
+console.log("Apps Script response:", responseText);
+
+let data: unknown = null;
+
+try {
+  data = JSON.parse(responseText);
+} catch {
+  return {
+    ok: false,
+    error: `Invalid JSON response (HTTP ${res.status}): ${responseText.slice(0, 300)}`,
+  };
+}
+
+if (!data || typeof data !== "object") {
+  return { ok: false, error: `Invalid JSON response (HTTP ${res.status})` };
+}
 
   const shape = data as { ok?: unknown; data?: unknown; error?: unknown };
   if (!res.ok) {
