@@ -5,7 +5,7 @@ import { faq } from "@/lib/wedding";
 
 export function FaqSection() {
   return (
-    <Section id="faq" title="FAQ" eyebrow="Helpful notes">
+    <Section id="faq" title="Câu hỏi thường gặp" eyebrow="Thông tin hữu ích">
       <Reveal>
         <Accordion items={faq.map((f) => ({ title: f.q, content: f.a }))} />
       </Reveal>

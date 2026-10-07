@@ -1,68 +1,43 @@
+import Image from "next/image";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import Image from "next/image";
-
-const palette = [
-  { name: "Soft Creamy Peach", hex: "#FBCBA4", key: "peach" },
-  { name: "Dusty Rose", hex: "#D7A795", key: "dusty-rose" },
-  { name: "Terracotta", hex: "#F49C76", key: "terracotta" },
-  { name: "Muted Dusty Blue", hex: "#9CBCCF", key: "dusty-blue" },
-] as const;
-
-function Swatch({ name, hex }: { name: string; hex: string }) {
-  return (
-    <div className="card-bg-5 rounded-[22px] border border-white/45 p-4 shadow-[0_18px_55px_rgba(58,31,27,0.10)] backdrop-blur-md">
-      <div
-        className="h-12 w-full rounded-2xl border border-white/40"
-        style={{ background: hex }}
-      />
-      <p className="mt-3 font-sans text-xs tracking-wide text-ink-muted">
-        {name}
-      </p>
-      <p className="mt-1 font-sans text-[11px] tracking-[0.22em] uppercase text-ink-muted/70">
-        {hex}
-      </p>
-    </div>
-  );
-}
 
 export function DressCodeSection() {
   return (
-    <Section id="dress-code" title="Dress Code" eyebrow="Finer details">
+    <Section id="dress-code" title="Trang phục" eyebrow="Bạn sẽ tự nhiên tỏa sáng">
       <Reveal>
         <div className="card-bg-4 rounded-[34px] border border-white/45 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
-          <h3 className="font-serif text-2xl text-ink">Attire</h3>
+          <h3 className="font-serif text-2xl text-ink">Mặc điều khiến bạn tự tin</h3>
           <p className="mt-3 font-sans text-sm leading-7 text-ink-muted">
-            Strictly formal / semi-formal.
+            Không cần một khuôn mẫu để trở nên nổi bật.
+Hãy chọn những gì khiến bạn cảm thấy là chính mình — thoải mái, tự tin và sẵn sàng tận hưởng một ngày thật đẹp cùng mọi người.
           </p>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="card-bg-5 flex min-h-[220px] items-center justify-center overflow-hidden rounded-[28px] border border-white/45 p-4 sm:min-h-[250px]">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="card-bg-5 flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-[28px] border border-white/45 p-4 sm:min-h-[250px]">
               <Image
                 src="/gallery/menAttire.png"
-                alt="Men's attire guide"
+                alt="Hướng dẫn trang phục cho nam"
                 width={900}
                 height={1200}
-                className="h-auto max-h-[190px] w-auto object-contain sm:max-h-[220px]"
+                className="h-auto max-h-[150px] w-auto object-contain sm:max-h-[170px]"
               />
+              <p className="mt-5 font-sans text-xs tracking-[0.24em] uppercase text-ink-muted">Các chàng</p>
+              <p className="mt-2 text-center font-serif text-xl text-ink">Lịch lãm, nhưng vẫn là bạn</p>
+              <p className="mt-2 text-center font-sans text-xs leading-5 text-ink-muted">Áo sơ mi, áo khoác, quần tây hoặc outfit bạn thường mặc.</p>
             </div>
-            <div className="card-bg-5 flex min-h-[220px] items-center justify-center overflow-hidden rounded-[28px] border border-white/45 p-4 sm:min-h-[250px]">
+            <div className="card-bg-5 flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-[28px] border border-white/45 p-4 sm:min-h-[250px]">
               <Image
                 src="/gallery/womenAttire.png"
-                alt="Women's attire guide"
+                alt="Hướng dẫn trang phục cho nữ"
                 width={900}
                 height={1200}
-                className="h-auto max-h-[190px] w-auto object-contain sm:max-h-[220px]"
+                className="h-auto max-h-[150px] w-auto object-contain sm:max-h-[170px]"
               />
+              <p className="mt-5 font-sans text-xs tracking-[0.24em] uppercase text-ink-muted">Các nàng</p>
+              <p className="mt-2 text-center font-serif text-xl text-ink">Dịu dàng theo cách của bạn</p>
+              <p className="mt-2 text-center font-sans text-xs leading-5 text-ink-muted">Váy, quần dài hoặc outfit nào bạn yêu thích.</p>
             </div>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-4">
-            {palette.map((p, idx) => (
-              <Reveal key={p.key} delayMs={idx * 60}>
-                <Swatch name={p.name} hex={p.hex} />
-              </Reveal>
-            ))}
           </div>
         </div>
       </Reveal>

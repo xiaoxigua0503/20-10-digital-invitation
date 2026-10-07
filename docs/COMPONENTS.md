@@ -1,7 +1,7 @@
 ## Editable Content
 - Wedding details, entourage, timeline, FAQ, and gallery prompts: [wedding.ts](file:///c:/Projects/wedding-rsvp-trae/src/lib/wedding.ts)
 - Generated image URLs: [images.ts](file:///c:/Projects/wedding-rsvp-trae/src/lib/images.ts)
-- Audio file: place `public/audio/piano.mp3` (see [public/audio/README.md](file:///c:/Projects/wedding-rsvp-trae/public/audio/README.md))
+- Audio file: place `public\audio\Nơi Này Có Anh.mp3` (see [public/audio/README.md](file:///c:/Projects/wedding-rsvp-trae/public/audio/README.md))
 
 ## Key App Structure
 - Page entry: [page.tsx](file:///c:/Projects/wedding-rsvp-trae/src/app/page.tsx)

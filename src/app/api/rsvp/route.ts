@@ -24,16 +24,16 @@ export async function POST(req: Request) {
   const website = String(body.website ?? "").trim();
   const startedAt = Number(body.startedAt ?? 0);
 
-  if (website) return badRequest("Spam detected");
-  if (!name) return badRequest("Name is required");
-  if (!email || !isValidEmail(email)) return badRequest("Invalid email");
-  if (!phone || !isValidPhone(phone)) return badRequest("Invalid phone number");
+  if (website) return badRequest("Phát hiện dấu hiệu spam");
+  if (!name) return badRequest("Vui lòng nhập họ tên");
+  if (!email || !isValidEmail(email)) return badRequest("Email không hợp lệ");
+  if (!phone || !isValidPhone(phone)) return badRequest("Số điện thoại không hợp lệ");
   if (attendance === "yes" && guestCount <= 0)
-    return badRequest("Guest count must be at least 1");
+    return badRequest("Số khách phải ít nhất 1");
   if (attendance === "no") {
-    if (guestCount !== 0) return badRequest("Guest count must be 0 if not attending");
+    if (guestCount !== 0) return badRequest("Số khách phải bằng 0 nếu không tham dự");
   }
-  if (startedAt && Date.now() - startedAt < 1200) return badRequest("Please try again");
+  if (startedAt && Date.now() - startedAt < 1200) return badRequest("Vui lòng thử lại");
 
   const result = await callAppsScript<{ upserted: true }>({
     action: "upsert",

@@ -1,100 +1,46 @@
-import { galleryImages } from "@/lib/images";
-
 export const wedding = {
-  couple: {
-    bride: "Christine Faner",
-    groom: "Angelo Pablo",
-  },
+  eventName: "20/10 – Vietnamese Women's Day",
+  shortName: "20/10",
   date: {
-    iso: "2026-06-19T10:00:00+08:00",
-    display: "June 19, 2026",
+    iso: "2026-10-20T11:00:00+08:00",
+    display: "20 tháng 10, 2026 · 11:00",
+    location: "Chongqing University, Trung Quốc",
   },
-  ceremony: {
-    title: "Ceremony",
-    venue: "Lokal ng Sandulayan",
+  venue: {
+    name: "Địa điểm sự kiện",
     lines: [
-      "Sitio INC Brgy. Sto. Niño, Rizal",
-      "5103 Occidental Mindoro",
+      "Chongqing University, Trung Quốc",
+      "Chi tiết địa điểm sẽ được cập nhật sau.",
     ],
+    mapQuery: "Chongqing University , Trung Quốc",
   },
-  reception: {
-    title: "Reception",
-    venue: "Grandiya's Venue Hall",
-    lines: ["Aroma Center, Gate 1", "San Roque, San Jose", "Occidental Mindoro"],
-  },
-  party: {
-    title: "Family & Friends Dinner",
-    venue: "Paredes Private Resort",
-    lines: ["Murtha, San Jose", "\nOccidental Mindoro"],
-    mapQuery: "12°26'16.4\"N 121°06'10.8\"E",
-  },
+  description:
+    "Một ngày để yêu thương được gọi tên, để những người phụ nữ Việt Nam được nâng niu và tỏa sáng — nơi những người con xa quê tại Trùng Khánh cùng gửi trao niềm tự hào, niềm tin và những ước mơ đang lớn.",
 } as const;
 
 export const weddingTimeline = [
-  { time: "09:00 AM", title: "Guest Arrival", note: "Warm welcome and seating" },
-  { time: "9:45 AM", title: "Wedding Ceremony", note: wedding.ceremony.venue },
-  { time: "11:00 AM", title: "Photo Opportunities", note: "Family and entourage" },
-  { time: "12:00 NN", title: "Reception", note: wedding.reception.venue },
-  { time: "", title: "Lunch", note: "Sharing a meal together" },
-  { time: "", title: "Program", note: "Speeches, music, and toasts" },
-  { time: "6:00 PM", title: "Family & Friends Dinner", note: "Paredes Private Resort" },
+  { time: "11:00", title: "Lễ mở cửa", note: "Chào đón và sắp xếp chỗ ngồi" },
+  { time: "11:30", title: "Lời chúc và lời dẫn", note: "Những câu chuyện ý nghĩa của ngày 20/10" },
+  { time: "12:30", title: "Hoạt động kết nối", note: "Chia sẻ hình ảnh và kỷ niệm cùng bạn bè" },
+  { time: "14:00", title: "Bữa ăn", note: "Nghênh hưởng cùng nhau" },
+  { time: "16:00", title: "Hoạt động cuối", note: "Lời chúc và hẹn gặp lại trong tương lai" },
 ] as const;
-
-export const entourage = {
-  principalSponsors: {
-    left: [
-      "Bro. Jimmy D. Flores",
-      "Mr. Robert Angelo D. Pablo",
-      "Mr. Joseph E. Salgado",
-      "Bro. Hector Roy B. Casem",
-      "Mr. Chester P. Ruiz",
-    ],
-    right: [
-      "Sis. Ann Roxanne D. Rodrigo",
-      "Sis. Maria Venus C. Enriquez",
-      "Sis. Gemma N. Gadiano",
-      "Sis. Eden D. Peralta",
-      "Sis. Arlet D. Mactal",
-    ],
-  },
-  bestMan: "Mr. Nico Alfonso N. Pangilinan",
-  maidOfHonor: "Ms. Princess Catherine A. Mendoza",
-  groomsmen: [
-    "Mr. Carlos Bon B. Sunga",
-    "Mr. Jaypee E. Estandian",
-    "Mr. Jacob I. Guran",
-    "Mr. Josh Will S. Gasmẽna",
-  ],
-  bridesmaids: [
-    "Ms. Sophia Mae P. Acbang",
-    "Ms. Bea Bianca S. Ramos",
-    "Ms. Lie Catherine C. Galam",
-    "Ms. Allona Jane A. Esguerra",
-  ],
-  ringBearer: "Marcus Gabriel R. Gadiano",
-  flowerGirls: ["Sabrina P. Acbang", "Aubrey Naoue"],
-} as const;
 
 export const faq = [
   {
-    q: "What time should we arrive?",
-    a: "Please arrive at least 30 minutes early so everyone can be seated before the ceremony begins.",
+    q: "Sự kiện có những hoạt động gì?",
+    a: "Chương trình sẽ có nhiều hoạt động giao lưu, chia sẻ và những khoảnh khắc đặc biệt dành cho các bạn nữ. Chi tiết chương trình sẽ được cập nhật sớm trên trang.",
   },
   {
-    q: "Can I bring a plus one?",
-    a: "We’d love to celebrate with you—please indicate the number of guests on your RSVP so we can plan accordingly.",
+    q: "Tôi có cần đăng ký trước không?",
+    a: "Có. Vui lòng hoàn thành form RSVP để ban tổ chức có thể chuẩn bị chu đáo về chỗ ngồi và các hoạt động trong chương trình.",
   },
   {
-    q: "Is there parking available?",
-    a: "Yes, both venues have nearby parking. If you need help on the day, reach out using the contact section below.",
+    q: "Tôi có thể tham gia cùng bạn bè không?",
+    a: "Tất nhiên! Hãy rủ thêm những người bạn Việt Nam tại Trùng Khánh cùng tham gia và ghi rõ số lượng người đi cùng trong form RSVP nhé.",
   },
   {
-    q: "What is the dress code?",
-    a: "Strictly formal / semi-formal. We’d love for you to match our wedding palette if you can.",
+    q: "Tôi nên chuẩn bị gì cho sự kiện?",
+    a: "Chỉ cần mang theo một tâm trạng thật vui và một chút háo hức. Đừng quên diện một bộ trang phục bạn cảm thấy tự tin và thoải mái nhất!",
   },
 ] as const;
-
-export const gallery = galleryImages.map((src, idx) => ({
-  src,
-  alt: `Gallery photo ${idx + 1}`,
-}));

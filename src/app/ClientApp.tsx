@@ -9,15 +9,10 @@ import { HeroSection } from "@/sections/HeroSection";
 import { CountdownSection } from "@/sections/CountdownSection";
 import { StorySection } from "@/sections/StorySection";
 import { TimelineSection } from "@/sections/TimelineSection";
-import { EntourageSection } from "@/sections/EntourageSection";
 import { DressCodeSection } from "@/sections/DressCodeSection";
-import { DetailsSection } from "@/sections/DetailsSection";
 import { VenueSection } from "@/sections/VenueSection";
-import { GallerySection } from "@/sections/GallerySection";
-import { GiftRegistrySection } from "@/sections/GiftRegistrySection";
 import { FaqSection } from "@/sections/FaqSection";
 import { RsvpSection } from "@/sections/RsvpSection";
-import { ContactSection } from "@/sections/ContactSection";
 import { FooterSection } from "@/sections/FooterSection";
 
 export function ClientApp() {
@@ -28,14 +23,11 @@ export function ClientApp() {
     () => [
       { id: "countdown", label: "Countdown" },
       { id: "story", label: "Our Story" },
-      { id: "timeline", label: "Timeline" },
-      { id: "entourage", label: "Entourage" },
-      { id: "dress-code", label: "Dress Code" },
+      { id: "timeline", label: "Agenda" },
+      { id: "dress-code", label: "Dress code" },
       { id: "venues", label: "Venues" },
-      { id: "gallery", label: "Gallery" },
-      { id: "faq", label: "FAQ" },
-      { id: "rsvp", label: "RSVP" },
-      { id: "contact", label: "Contact" },
+      { id: "faq", label: "F&Q" },
+      { id: "rsvp", label: "Register" },
     ],
     []
   );
@@ -52,7 +44,7 @@ export function ClientApp() {
   return (
     <>
       <StickyNav visible={entered} items={nav} />
-      <AudioPlayer enabled={musicEnabled} src="/audio/piano.mp3" />
+      <AudioPlayer enabled={musicEnabled} src="/audio/Nơi Này Có Anh.mp3" />
 
       {!entered ? (
         <IntroEnvelope
@@ -79,15 +71,10 @@ export function ClientApp() {
           <CountdownSection />
           <StorySection />
           <TimelineSection />
-          <EntourageSection />
           <DressCodeSection />
-          <DetailsSection />
           <VenueSection />
-          <GallerySection />
-          <GiftRegistrySection />
           <FaqSection />
           <RsvpSection />
-          <ContactSection />
           <FooterSection />
         </main>
       </div>

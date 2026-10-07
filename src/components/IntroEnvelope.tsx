@@ -158,23 +158,23 @@ export function IntroEnvelope({
         >
           <div className="pointer-events-none mb-7 text-center sm:mb-7">
             <p className="font-serif text-[2rem] text-[#6f5648] sm:text-[2.55rem]">
-              Christine <span className="text-[#a08676]">&amp;</span> Angelo
+              20/10 Vietnamese Women's Day
             </p>
             <p className="mt-2 font-sans text-[11px] uppercase tracking-[0.34em] text-[#8d7264] sm:text-xs">
-              June 19, 2026
+              Chongqing University · Chongqing
             </p>
           </div>
 
           <div
             role="button"
             tabIndex={0}
-            aria-label="Open invitation"
+            aria-label="Mở lời mời"
             onClick={start}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") start();
             }}
             className={cn(
-              "group relative mx-auto block w-full cursor-pointer select-none outline-none",
+              "group relative mx-auto block w-full cursor-pointer select-none outline-none -translate-y-6 sm:-translate-y-8",
               "aspect-[3/4] sm:aspect-[4/3]",
               "focus-visible:ring-2 focus-visible:ring-[#8d7264]/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f3e5d7]"
             )}
@@ -236,19 +236,19 @@ export function IntroEnvelope({
 
                           <div className="flex flex-col items-center text-center px-4">
                             <p className="mb-4 font-sans text-[9px] uppercase tracking-[0.3em] text-[#937b6c] sm:mb-5 sm:text-[10px]">
-                              You are invited
+                              Lời mời gửi tới nàng
                             </p>
                             
                             <div className="flex flex-col items-center space-y-1 sm:space-y-2">
-                              <h2 className="font-serif text-2xl text-[#6C2B29] sm:text-3xl">Christine</h2>
-                              <span className="font-serif text-lg italic text-[#c2a38b] sm:text-xl">&amp;</span>
-                              <h2 className="font-serif text-2xl text-[#6C2B29] sm:text-3xl">Angelo</h2>
+                              <h2 className="font-serif text-2xl text-[#6C2B29] sm:text-3xl">20/10</h2>
+                              <span className="font-serif text-lg italic text-[#c2a38b] sm:text-xl">✦</span>
+                              <h2 className="font-serif text-xl text-[#6C2B29] sm:text-2xl">Chongqing</h2>
                             </div>
 
                             <div className="my-5 h-px w-12 bg-gradient-to-r from-transparent via-[#b3907a] to-transparent sm:my-6 sm:w-16" />
 
                             <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#937b6c] sm:text-[11px]">
-                              June 19, 2026
+                              20 tháng 10, 2026
                             </p>
                           </div>
                         </div>
@@ -344,7 +344,7 @@ export function IntroEnvelope({
                         <div className="absolute inset-[6%] rounded-full shadow-[0_18px_44px_rgba(0,0,0,0.38)]" />
                         {sealImgOk ? (
                           <Image
-                            src="/intro/seal.png"
+                            src="/intro/logo.jpg"
                             alt="Wax seal"
                             width={320}
                             height={320}
@@ -369,10 +369,10 @@ export function IntroEnvelope({
 
             <div className="pointer-events-none absolute inset-x-0 bottom-[2%] text-center sm:bottom-[3%]">
               <p className="font-sans text-[11px] uppercase tracking-[0.34em] text-[#8d7264] sm:text-[11px]">
-                {phase === "idle" ? "Tap the envelope to open" : "Opening invitation"}
+                {phase === "idle" ? "Nhấn vào phong bì để mở" : "Đang mở lời mời"}
               </p>
               <p className="mt-2 font-sans text-[11px] text-[#9b8376] sm:text-[11px]">
-                {hasStarted ? "Preparing your invitation experience" : "Audio will begin after opening"}
+                {hasStarted ? "Đang chuẩn bị trải nghiệm" : ""}
               </p>
             </div>
           </div>

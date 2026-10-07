@@ -18,14 +18,14 @@ const body = Plus_Jakarta_Sans({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata: Metadata = {
-  title: "Christine & Angelo | Wedding Invitation",
+  title: "20/10 | Lời mời học sinh Việt Nam tại Chongqing",
   description:
-    "You are warmly invited to the wedding of Christine Faner and Angelo Pablo on June 19, 2026.",
+    "Một ngày ý nghĩa dành cho phụ nữ Việt Nam tại Chongqing, Trung Quốc.",
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   openGraph: {
-    title: "Christine & Angelo | Wedding Invitation",
+    title: "20/10 | Lời mời học sinh Việt Nam tại Chongqing",
     description:
-      "You are warmly invited to the wedding of Christine Faner and Angelo Pablo on June 19, 2026.",
+      "Một ngày ý nghĩa dành cho phụ nữ Việt Nam tại Chongqing, Trung Quốc.",
     type: "website",
     images: ["/intro/1Logo.jpg"],
   },
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="vi"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

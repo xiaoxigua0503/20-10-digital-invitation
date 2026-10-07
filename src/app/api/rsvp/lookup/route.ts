@@ -17,9 +17,9 @@ export async function POST(req: Request) {
   const email = emailRaw ? emailRaw : undefined;
   const phone = phoneRaw ? phoneRaw : undefined;
 
-  if (!email && !phone) return badRequest("Provide email or phone");
-  if (email && !isValidEmail(email)) return badRequest("Invalid email");
-  if (phone && !isValidPhone(phone)) return badRequest("Invalid phone number");
+  if (!email && !phone) return badRequest("Vui lòng nhập email hoặc số điện thoại");
+  if (email && !isValidEmail(email)) return badRequest("Email không hợp lệ");
+  if (phone && !isValidPhone(phone)) return badRequest("Số điện thoại không hợp lệ");
 
   const result = await callAppsScript<{
     found: boolean;

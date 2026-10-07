@@ -22,19 +22,19 @@ export function CountdownSection() {
   const dash = "—";
 
   return (
-    <Section id="countdown" title="Countdown" eyebrow="Until we say I do">
+    <Section id="countdown" title="Đếm ngược đến 20/10" eyebrow="Ngày ý nghĩa sắp đến rồi đóa nha~">
       <Reveal>
         <div className="rounded-[34px] border border-white/45 bg-white/34 p-7 shadow-[0_30px_110px_rgba(58,31,27,0.14)] backdrop-blur-md sm:p-10">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
-            <Tile label="Days" value={cd.ready ? fmt(cd.days) : dash} />
-            <Tile label="Hours" value={cd.ready ? fmt(cd.hours) : dash} />
-            <Tile label="Minutes" value={cd.ready ? fmt(cd.minutes) : dash} />
-            <Tile label="Seconds" value={cd.ready ? fmt(cd.seconds) : dash} />
+            <Tile label="Ngày" value={cd.ready ? fmt(cd.days) : dash} />
+            <Tile label="Giờ" value={cd.ready ? fmt(cd.hours) : dash} />
+            <Tile label="Phút" value={cd.ready ? fmt(cd.minutes) : dash} />
+            <Tile label="Giây" value={cd.ready ? fmt(cd.seconds) : dash} />
           </div>
           <p className="mt-8 font-sans text-sm leading-7 text-ink-muted">
             {cd.done
-              ? "Today is the day."
-              : "Counting down the moments until we celebrate together."}
+              ? "Hôm nay là ngày ý nghĩa."
+              : "Đếm ngược đến ngày đại gia đình ta gặp nhauuu!"}
           </p>
         </div>
       </Reveal>

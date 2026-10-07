@@ -55,28 +55,34 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
           />
 
           <div className="relative overflow-hidden rounded-[36px] border border-white/45 shadow-[0_30px_110px_rgba(58,31,27,0.16)]">
-            <div className="absolute inset-0 bg-[url('/gallery/cardbg.jpg')] bg-cover bg-[position:35%_center] sm:bg-center" />
+            <div
+  className="
+    absolute inset-0
+    bg-[url('/gallery/phunuvietnam.jpg')]
+    bg-no-repeat
+    bg-[length:90%_auto]
+    bg-center
+  "
+/>
+
             <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/55 to-white/80" />
 
             <div className="relative px-6 py-14 backdrop-blur-[1px] sm:px-14 sm:py-18">
               <p className="font-sans text-xs tracking-[0.34em] uppercase text-ink-muted/85">
-                Together with our loved ones
+                Hội sinh viên Việt Nam - Đại học Trùng Khánh
               </p>
               <div className="mt-10 flex flex-col gap-3">
                 <h1 className="text-center font-serif text-5xl leading-[0.95] text-ink sm:text-7xl">
-                  <span className="block">{wedding.couple.bride}</span>
-                  <span
-                    className={cn(
-                      "mt-3 block text-3xl text-ink/55 sm:text-4xl"
-                    )}
-                  >
-                    &amp;
-                  </span>
-                  <span className="mt-3 block">{wedding.couple.groom}</span>
+                  {wedding.eventName.split(" – ").map((part, i) => (
+  <span key={part}>
+    {i > 0 && <br />}
+    {part}
+  </span>
+))}
                 </h1>
                 <div className="mt-6 h-px w-28 bg-gradient-to-r from-burgundy/55 to-transparent" />
                 <p className="mt-6 max-w-xl font-sans text-base leading-8 text-ink-muted sm:text-lg">
-                  You are warmly invited to celebrate our wedding day.
+                  {wedding.description}
                 </p>
               </div>
 
@@ -86,10 +92,10 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
                   onClick={onRsvp}
                   className="w-full sm:w-auto"
                 >
-                  RSVP
+                  Đăng ký ngay
                 </Button>
                 <p className="font-sans text-sm tracking-wide text-ink-muted">
-                  {wedding.date.display}
+                  {wedding.date.display} · {wedding.date.location}
                 </p>
               </div>
             </div>
@@ -106,7 +112,7 @@ export function HeroSection({ onRsvp }: { onRsvp: () => void }) {
               }}
               className="rounded-full border border-white/40 bg-white/40 px-5 py-3 text-xs tracking-[0.26em] uppercase text-ink-muted backdrop-blur-md transition-colors hover:bg-white/60"
             >
-              Scroll
+              Xem tiếp
             </button>
           </div>
         </div>
