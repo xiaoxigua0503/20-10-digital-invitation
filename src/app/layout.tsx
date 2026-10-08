@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     description:
       "Một ngày ý nghĩa dành cho phụ nữ Việt Nam tại Chongqing, Trung Quốc.",
     type: "website",
-    images: ["/intro/1Logo.jpg"],
+    images: ["/intro/logo.jpg"],
   },
   icons: {
-    icon: "/intro/1Logo.jpg",
-    apple: "/intro/1Logo.jpg",
+    icon: "/intro/logo.jpg",
+    apple: "/intro/logo.jpg",
   },
 };
 
